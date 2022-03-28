@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="../WEB-INF/templates/layout.xhtml">
+	
+	
+	
+<ui:define name="corpo">
+<h:form>
+	<h1>Avisos</h1>
+	<p:panelGrid columns="4">
+		<p:outputLabel value="Enviar para"/>
+		<p:selectOneMenu>
+			<f:selectItem itemLabel="Selecione a opção "/>
+			<f:selectItem itemLabel="Toda Escola" itemValue="1"/>
+			<f:selectItem itemLabel="Matutino" itemValue="2"/>
+			<f:selectItem itemLabel="Vespertino" itemValue="3"/>
+			<f:selectItem itemLabel="Noturno" itemValue="4"/>
+		</p:selectOneMenu>
+		
+		<p:outputLabel value="Enviar para Série"/>
+		<p:selectOneMenu>
+			<f:selectItem itemLabel="Selecione a opção "/>
+			<f:selectItem itemLabel="todas as 8º" itemValue="8º"/>
+			<f:selectItem itemLabel="todas as 7º" itemValue="7º"/>
+			<f:selectItem itemLabel="todas as 6º" itemValue="6º"/>
+			<f:selectItem itemLabel="todas as 5º" itemValue="5º"/>
+			<f:selectItem itemLabel="todas as 4º" itemValue="4º"/>
+			<f:selectItem itemLabel="todas as 3º" itemValue="3º"/>
+			<f:selectItem itemLabel="todas as 2º" itemValue="2º"/>
+			<f:selectItem itemLabel="todas as 1º" itemValue="1º"/>
+		</p:selectOneMenu>
+	</p:panelGrid>
+	
+	<p:panelGrid columns="2" style="margin-top: 10px;">
+		<p:outputLabel value="Mensagem" for="mensagem" />
+		<p:inputTextarea id="mensagem" style="width: 417px;"/>
+	</p:panelGrid>
+	
+	<p:separator/>
+	
+	<p:commandButton value="Enviar"/>
+</h:form>
+
+</ui:define>
+<ui:define name="superior">
+	<ui:include src="/WEB-INF/includes/MenuSuperior.xhtml" />
+</ui:define>
+
+<ui:define name="lateral">
+	<ui:include src="/WEB-INF/includes/MenuLateral.xhtml" />
+</ui:define>
+
+<ui:define name="footer">
+	<ui:include src="/WEB-INF/includes/footer.xhtml" />
+</ui:define>
+</ui:composition>

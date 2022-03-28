@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="../WEB-INF/templates/layout.xhtml">
+
+
+	<ui:define name="corpo">
+		<h1>Cadastro De Alunos</h1>
+		<h:form >
+			<p:growl autoUpdate="true" />
+			<p:panelGrid columns="2">
+
+				<p:outputLabel value="Matrícula" for="matricula" />
+				<p:inputText id="matricula"
+					value="#{cadastroAlunoBean.aluno.matricula}" />
+
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText id="nome" size="97"
+					value="#{cadastroAlunoBean.aluno.nome}" />
+					
+				<p:outputLabel value="Selecione o Turno" for="turno" />
+				<p:selectOneMenu id="turno" value="#{cadastroAlunoBean.aluno.turno}">
+					<f:selectItem itemLabel="Selecione o turno" />
+					<f:selectItem itemLabel="Matutino" itemValue="matutino" />
+					<f:selectItem itemLabel="Vespertino" itemValue="vespertino" />
+					<f:selectItem itemLabel="Noturno" itemValue="noturno" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Selecione a Série" for="serie" />
+				<p:selectOneMenu id="serie" value="#{cadastroAlunoBean.aluno.serie}">
+					<f:selectItem itemLabel="Selecione a Série" />
+					<f:selectItem itemLabel="9º" itemValue="9º" />
+					<f:selectItem itemLabel="8º" itemValue="8º" />
+					<f:selectItem itemLabel="7º" itemValue="7º" />
+					<f:selectItem itemLabel="6º" itemValue="6º" />
+					<f:selectItem itemLabel="5º" itemValue="5º" />
+					<f:selectItem itemLabel="4º" itemValue="4º" />
+					<f:selectItem itemLabel="3º" itemValue="3º" />
+					<f:selectItem itemLabel="2º" itemValue="2º" />
+					<f:selectItem itemLabel="1º" itemValue="1º" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Selecione a Turma" for="turma" />
+				<p:selectOneMenu id="turma" value="#{cadastroAlunoBean.aluno.turma}">
+					<f:selectItem itemLabel="Selecione a Turma" />
+					<f:selectItem itemLabel="A" itemValue="A" />
+					<f:selectItem itemLabel="B" itemValue="B" />
+					<f:selectItem itemLabel="C" itemValue="C" />
+					<f:selectItem itemLabel="D" itemValue="D" />
+					<f:selectItem itemLabel="E" itemValue="E" />
+					<f:selectItem itemLabel="F" itemValue="F" />
+					<f:selectItem itemLabel="G" itemValue="G" />
+					<f:selectItem itemLabel="H" itemValue="H" />
+					<f:selectItem itemLabel="I" itemValue="I" />
+					<f:selectItem itemLabel="J" itemValue="J" />
+					<f:selectItem itemLabel="K" itemValue="K" />
+					<f:selectItem itemLabel="L" itemValue="L" />
+					<f:selectItem itemLabel="M" itemValue="M" />
+					<f:selectItem itemLabel="N" itemValue="N" />
+					<f:selectItem itemLabel="O" itemValue="O" />
+				</p:selectOneMenu>
+				</p:panelGrid>
+				
+				
+				
+				<p:panelGrid columns="4">
+
+				<p:outputLabel value="CEP" for="cep" />
+				<p:inputText id="cep" value="#{cadastroAlunoBean.endereco.cep}" />
+
+				<p:outputLabel value="Lougradouro" for="lougradouro" />
+				<p:inputText id="lougradouro"
+					value="#{cadastroAlunoBean.endereco.logradouro}" size="39" />
+
+				<p:outputLabel value="Numero" for="numero" />
+				<p:inputText id="numero"
+					value="#{cadastroAlunoBean.endereco.numero}" />
+
+				<p:outputLabel value="Bairro" for="bairro" />
+				<p:inputText id="bairro"
+					value="#{cadastroAlunoBean.endereco.bairro}" />
+
+				<p:outputLabel value="Cidade" for="cidade" />
+				<p:inputText id="cidade"
+					value="#{cadastroAlunoBean.endereco.cidade}" size="40" />
+
+				<p:outputLabel value="UF" for="uf" />
+				<p:selectOneMenu id="uf" value="#{cadastroAlunoBean.endereco.uf}">
+					<f:selectItem itemLabel="Selecione o Estado" />
+					<f:selectItem itemLabel="AC" itemValue="AC" />
+					<f:selectItem itemLabel="AL" itemValue="AL" />
+					<f:selectItem itemLabel="AP" itemValue="AP" />
+					<f:selectItem itemLabel="AM" itemValue="AM" />
+					<f:selectItem itemLabel="BA" itemValue="BA" />
+					<f:selectItem itemLabel="CE" itemValue="CE" />
+					<f:selectItem itemLabel="DF" itemValue="DF" />
+					<f:selectItem itemLabel="ES" itemValue="ES" />
+					<f:selectItem itemLabel="GO" itemValue="GO" />
+					<f:selectItem itemLabel="MA" itemValue="MA" />
+					<f:selectItem itemLabel="MG" itemValue="MG" />
+					<f:selectItem itemLabel="MT" itemValue="MT" />
+					<f:selectItem itemLabel="MS" itemValue="MS" />
+					<f:selectItem itemLabel="PA" itemValue="PA" />
+					<f:selectItem itemLabel="PB" itemValue="PB" />
+					<f:selectItem itemLabel="PR" itemValue="PR" />
+					<f:selectItem itemLabel="PE" itemValue="PE" />
+					<f:selectItem itemLabel="PI" itemValue="PI" />
+					<f:selectItem itemLabel="RJ" itemValue="RJ" />
+					<f:selectItem itemLabel="RN" itemValue="RN" />
+					<f:selectItem itemLabel="RS" itemValue="RS" />
+					<f:selectItem itemLabel="RO" itemValue="RO" />
+					<f:selectItem itemLabel="RR" itemValue="RR" />
+					<f:selectItem itemLabel="SC" itemValue="SC" />
+					<f:selectItem itemLabel="SP" itemValue="SP" />
+					<f:selectItem itemLabel="SE" itemValue="SE" />
+					<f:selectItem itemLabel="TO" itemValue="TO" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Complemento" for="complemento" />
+				<p:inputText id="complemento"
+					value="#{cadastroAlunoBean.endereco.complemento}" />
+					
+				<p:outputLabel value="Referência" for="referencia" />
+				<p:inputText id="referencia"
+					value="#{cadastroAlunoBean.endereco.referencia}" />
+
+			</p:panelGrid>
+			<p:separator />
+
+			<p:commandButton value="Salvar" id="botaoSalvar"
+				action="#{cadastroAlunoBean.salvar}" update="@form" />			
+		</h:form>
+
+
+	</ui:define>
+	<ui:define name="superior">
+		<ui:include src="/WEB-INF/includes/MenuSuperior.xhtml" />
+	</ui:define>
+
+	<ui:define name="lateral">
+		<ui:include src="/WEB-INF/includes/MenuLateral.xhtml" />
+	</ui:define>
+
+	<ui:define name="footer">
+		<ui:include src="/WEB-INF/includes/footer.xhtml" />
+	</ui:define>
+</ui:composition>

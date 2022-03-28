@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:o="http://omnifaces.org/ui"
+	template="../WEB-INF/templates/layout.xhtml">
+
+	<ui:define name="superior">
+		<ui:include src="/WEB-INF/includes/MenuSuperior.xhtml" />
+	</ui:define>
+
+	<ui:define name="lateral">
+		<ui:include src="/WEB-INF/includes/MenuLateral.xhtml" />
+	</ui:define>
+
+
+
+
+	<ui:define name="corpo">
+		<meta charset="UTF-8" />
+		<h1 style="color: #000; margin-left: 20px">Novo Responsável</h1>
+		<h:form>
+
+			<p:growl autoUpdate="true" />
+			<f:metadata>
+    			<o:viewParam name="aluno" value="#{pesquisaAlunosBean.listaAlunos}" />
+    			<f:event listener="#{pesquisaAlunosBean.listarAlunos}" type="preRenderView" />
+    		</f:metadata>
+    		
+			<p:panelGrid columns="4">
+				<p:outputLabel value="Responsável" for="responsavel" />
+				<p:inputText id="responsavel" size="50"
+					value="#{cadastroResponsavel.responsavel.nomeResponsavel}" />
+					
+				<p:outputLabel value="E-mail" for="email" />
+				<p:inputText id="email" size="50"
+					value="#{cadastroResponsavel.responsavel.email}" />
+
+				<p:outputLabel value="Celular" for="celular" />
+				<p:inputText id="celular"
+					value="#{cadastroResponsavel.responsavel.celular}" />
+
+				<p:outputLabel value="Telefone" for="telefone" />
+				<p:inputText id="telefone"
+					value="#{cadastroResponsavel.responsavel.telefone}" />
+
+				<p:outputLabel value="Parentesco" for="parentesco" />
+				<p:selectOneRadio id="parentesco"
+					value="#{cadastroResponsavel.responsavel.parentesco}">
+					<f:selectItem itemValue="Mãe" itemLabel="Mãe" />
+					<f:selectItem itemValue="Pai" itemLabel="Pai" />
+					<f:selectItem itemValue="Outros" itemLabel="Outros" />
+				</p:selectOneRadio>
+				
+
+
+			</p:panelGrid>
+
+
+			<p:separator />
+			<h3>Selecione o Aluno</h3>
+		
+			
+ 			
+ 			<p:dataTable id="alunosTable" value="#{pesquisaAlunosBean.listaAlunos}" var="aluno" widgetVar="buscaAlunos"
+				style="margin-top: 20px" emptyMessage="Nenhum aluno encontrado." rows="1" paginator="true"
+				paginatorAlwaysVisible="false" paginatorPosition="bottom" >
+				
+				<f:facet name="header">
+           			 <p:outputPanel style="text-align: left;">
+		                <h:outputText value="Busca de Aluno:" />
+		                <p:inputText id="globalFilter" onkeyup="PF('buscaAlunos').filter()" 
+		                style="width:400px;" placeholder="matrícula ou nome e clique sobre o nome para selecionar"/>
+            		</p:outputPanel>
+        		</f:facet>
+			
+				<p:column headerText="Matrícula" style="text-align: center; width: 100px" filterBy="#{aluno.matricula}" filterStyle="display: none;">
+					<h:outputText value="#{aluno.matricula}"/>
+				</p:column>
+		
+				<p:column headerText="Nome" style="width: 200px" filterBy="#{aluno.nome}" filterStyle="display: none;">
+					<h:outputText value="#{aluno.nome}"/>
+				</p:column>
+				
+				<p:column headerText="Turno" style="text-align: center; width: 100px" >
+					<h:outputText value="#{aluno.turno}"/>
+				</p:column>
+				
+				<p:column headerText="Série" style="text-align: center; width: 70px" >
+					<h:outputText value="#{aluno.serie}"/>
+				</p:column>
+				
+				<p:column headerText="Turma" style="text-align: center; width: 70px"  >
+					<h:outputText value="#{aluno.turma}"/>
+				</p:column>
+				
+			
+		</p:dataTable>
+
+			<p:separator />
+			<p:commandButton value="Salvar" id="botaoSalvar"
+				action="#{cadastroResponsavel.salvar}" update="@form" />
+			<p:commandButton value="Cancelar" />
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footer">
+		<ui:include src="/WEB-INF/includes/footer.xhtml" />
+	</ui:define>
+</ui:composition>

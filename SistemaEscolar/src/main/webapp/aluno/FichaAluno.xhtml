@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:o="http://omnifaces.org/ui"
+	template="../WEB-INF/templates/layout.xhtml">
+
+<ui:define name="superior">
+	<ui:include src="/WEB-INF/includes/MenuSuperior.xhtml" />
+</ui:define>
+
+<ui:define name="lateral">
+	<ui:include src="/WEB-INF/includes/MenuLateral.xhtml" />
+</ui:define>
+
+
+	
+
+<ui:define name="corpo">
+<meta charset="UTF-8"/>
+<h1 style="color: #000; margin-left: 20px">Ficha resumida  de Alunos</h1>
+
+
+    <h:form>
+ <p:growl id="messages" showDetail="true" />
+    <f:metadata>
+    	<o:viewParam name="aluno" value="#{pesquisaAlunosBean.listaAlunos}" />
+    	<f:event listener="#{pesquisaAlunosBean.listarAlunos}" type="preRenderView" />
+    </f:metadata>
+ 	<p:dataTable id="alunosTable" value="#{pesquisaAlunosBean.listaAlunos}" var="aluno" widgetVar="buscaAlunos"
+			style="margin-top: 20px;" emptyMessage="Nenhum aluno encontrado." rows="4" paginator="true"
+			paginatorAlwaysVisible="false" paginatorPosition="bottom" trigger="toggler">
+			
+				<f:facet name="header">
+           			 <p:outputPanel style="text-align: left;">
+		                <h:outputText value="Busca de Aluno:" />
+		                <p:inputText id="globalFilter" onkeyup="PF('buscaAlunos').filter()" 
+		                style="width:400px;" placeholder="busque por matrícula ou nome"/>
+            		</p:outputPanel>
+        		</f:facet>
+			
+				<p:column headerText="Foto" width="70">
+					<p:graphicImage height="50" width="50"	url="#{pesquisaAlunosBean.retornaFoto(aluno)}" />
+				</p:column>
+			
+				<p:column headerText="Matrícula" style="text-align: center; width: 100px" filterBy="#{aluno.matricula}" filterStyle="display: none;">
+					<h:outputText value="#{aluno.matricula}"/>
+				</p:column>
+		
+				<p:column headerText="Nome" style="width: 200px" filterBy="#{aluno.nome}" filterStyle="display: none;">
+					<h:outputText value="#{aluno.nome}"/>
+				</p:column>
+				
+				<p:column headerText="Turno" style="text-align: center; width: 100px" filterBy="#{aluno.turno}" filterStyle="display: none;">
+					<h:outputText value="#{aluno.turno}"/>
+				</p:column>
+				
+				<p:column headerText="Série" style="text-align: center; width: 70px" filterBy="#{aluno.serie}" filterStyle="display: none;">
+					<h:outputText value="#{aluno.serie}"/>
+				</p:column>
+				
+				<p:column headerText="Turma" style="text-align: center; width: 70px" filterBy="#{aluno.turma}" filterStyle="display: none;" >
+					<h:outputText value="#{aluno.turma}"/>
+				</p:column>
+				
+				<p:column style="text-align: center; width: 100px">
+					<p:button value="Ficha Completa" outcome="/aluno/Aluno" icon="ui-icon-pencil">
+						<f:param name="aluno" value="#{aluno.id}"/>
+					</p:button>
+					
+				</p:column>
+		</p:dataTable>
+
+</h:form>
+</ui:define>
+
+<ui:define name="footer">
+	<ui:include src="/WEB-INF/includes/footer.xhtml" />
+</ui:define>
+</ui:composition>

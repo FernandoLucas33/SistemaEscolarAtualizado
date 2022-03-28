@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:o="http://omnifaces.org/ui"
+	template="../WEB-INF/templates/layout.xhtml">
+
+<ui:define name="superior">
+	<ui:include src="/WEB-INF/includes/MenuSuperior.xhtml" />
+</ui:define>
+
+<ui:define name="lateral">
+	<ui:include src="/WEB-INF/includes/MenuLateral.xhtml" />
+</ui:define>
+
+
+	
+
+<ui:define name="corpo">
+<meta charset="UTF-8"/>
+<h1 style="color: #000; margin-left: 20px">Cadastro Individual de Aluno</h1>
+
+<!-- Toolbar -->
+
+<h:form>     
+    <p:growl id="messages" showDetail="true" />
+    <f:metadata>
+    	<o:viewParam name="aluno" value="#{cadastroAlunoBean.aluno}" />
+    	<!--  <f:event listener="#{cadastroAlunoBean.inicializar}" type="preRenderView" />-->
+    </f:metadata>
+ 
+    <p:toolbar style="margin-bottom: 20px">
+        <f:facet name="left">
+            <p:button value="Novo Aluno" icon="ui-icon-document"  outcome="/aluno/CadastroAlunos" />
+ 			<p:button  value="Alterar Dados" icon="ui-icon-pencil" outcome="/aluno/editarAluno"/>
+ 				
+            <p:button  value="Buscar" icon="ui-icon-folder-open" outcome="/aluno/BuscaAlunos"/>
+ 
+            <span class="ui-separator">
+                <span class="ui-icon ui-icon-grip-dotted-vertical" />
+            </span>
+ 
+            <p:commandButton type="button" title="Salvar" icon="ui-icon-disk" disabled="true" />
+            <p:commandButton type="button" title="Excluir" icon="ui-icon-trash" disabled="true" />
+            <p:commandButton type="button" title="Imprimir" icon="ui-icon-print"  disabled="true"/>
+            
+        </f:facet>
+ 
+       <f:facet name="right">
+       		<p:button value="Voltar" icon="ui-icon-back" outcome="/aluno/FichaAluno"/>
+       </f:facet>
+ 
+    </p:toolbar>
+</h:form>
+<!-- Toolbar -->
+
+
+
+
+
+<p:panelGrid columns="2">
+	<p:panelGrid columns="2" style="margin-left: 20px">
+    	<f:facet name="header">
+    	<p:lightBox styleClass="imagebox" id="lighbox">
+    		<h:outputLink value="../resources/imagens/teste.png" title="#{cadastroAlunoBean.aluno.nome}">
+       	 		<h:graphicImage name="imagens/teste.png" id="aluno"  />
+       	 	</h:outputLink>
+       	 </p:lightBox>
+  	  </f:facet>
+ 
+   	 <h:outputText value="Nome:" />
+  	 <h:outputText value="#{cadastroAlunoBean.aluno.nome}" />
+  	 
+  	 <h:outputText value="Série:" />
+   	 <h:outputText value="#{cadastroAlunoBean.aluno.serie}" />
+ 
+   	 <h:outputText value="Turma:" />
+   	 <h:outputText value="#{cadastroAlunoBean.aluno.turma}" />
+ 
+   	 <h:outputText value="Turno:" />
+   	 <h:outputText value="#{cadastroAlunoBean.aluno.turno}" />
+ 
+   	 <h:outputText value="Matrícula:" />
+  	  <h:outputText value="#{cadastroAlunoBean.aluno.matricula}" />
+	</p:panelGrid>
+	
+	<p:tabView>
+        <p:tab title="Ocorencias">
+            <h:panelGrid columns="2" cellpadding="5">
+            	<h:outputText value="Faltas:"/>
+            	<h:outputText value="5"/>
+            	
+            	<h:outputText value="Atrasos:"/>
+            	<h:outputText value="14"/>
+            	
+            	<h:outputText value="Advertências:"/>
+            	<h:outputText value="1"/>
+            	
+            	<h:outputText value="Suspenção:"/>
+            	<h:outputText value="0"/>
+              
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Notas">
+            <p:tabView>
+            	<p:tab title="1º Bimestre">
+            		<p:panelGrid columns="3" >
+            			<h:outputText value="Português"/>
+            			<h:outputText value="9,5"/>
+            			<h:outputText value="Média 9,5"/>
+            			
+            			<h:outputText value="Matemática"/>
+            			<h:outputText value="8,5"/>
+            			<h:outputText value="Média 8,5"/>
+            			
+            			<h:outputText value="História"/>
+            			<h:outputText value="5,5"/>
+            			<h:outputText value="Média 5,5"/>
+            			
+            			<h:outputText value="Geografia"/>
+            			<h:outputText value="8,5"/>
+            			<h:outputText value="Média 8,5"/>
+            			
+            			<h:outputText value="Artes"/>
+            			<h:outputText value="9,5"/>
+            			<h:outputText value="Média 9,5"/>
+            		
+            		</p:panelGrid>
+            	</p:tab>
+            	<p:tab title="2º Bimestre">
+            		<p:panelGrid columns="3" >
+            			<h:outputText value="Português"/>
+            			<h:outputText value="9,5"/>
+            			<h:outputText value="Média 9,5"/>
+            			
+            			<h:outputText value="Matemática"/>
+            			<h:outputText value="8,5"/>
+            			<h:outputText value="Média 8,5"/>
+            			
+            			<h:outputText value="História"/>
+            			<h:outputText value="5,5"/>
+            			<h:outputText value="Média 5,5"/>
+            			
+            			<h:outputText value="Geografia"/>
+            			<h:outputText value="8,5"/>
+            			<h:outputText value="Média 8,5"/>
+            			
+            			<h:outputText value="Artes"/>
+            			<h:outputText value="9,5"/>
+            			<h:outputText value="Média 9,5"/>
+            		
+            		</p:panelGrid>
+            	
+            	</p:tab>
+            	<p:tab title="3º Bimestre">
+            		<p:panelGrid columns="3" >
+            			<h:outputText value="Português"/>
+            			<h:outputText value="9,5"/>
+            			<h:outputText value="Média 9,5"/>
+            			
+            			<h:outputText value="Matemática"/>
+            			<h:outputText value="8,5"/>
+            			<h:outputText value="Média 8,5"/>
+            			
+            			<h:outputText value="História"/>
+            			<h:outputText value="5,5"/>
+            			<h:outputText value="Média 5,5"/>
+            			
+            			<h:outputText value="Geografia"/>
+            			<h:outputText value="8,5"/>
+            			<h:outputText value="Média 8,5"/>
+            			
+            			<h:outputText value="Artes"/>
+            			<h:outputText value="9,5"/>
+            			<h:outputText value="Média 9,5"/>
+            		
+            		</p:panelGrid>
+            	</p:tab>
+            	<p:tab title="4º Bimestre">
+            		<p:panelGrid columns="3" >
+            			<h:outputText value="Português"/>
+            			<h:outputText value=" - "/>
+            			<h:outputText value="Média 9,5"/>
+            			
+            			<h:outputText value="Matemática"/>
+            			<h:outputText value=" - "/>
+            			<h:outputText value="Média 8,5"/>
+            			
+            			<h:outputText value="História"/>
+            			<h:outputText value=" - "/>
+            			<h:outputText value="Média 5,5"/>
+            			
+            			<h:outputText value="Geografia"/>
+            			<h:outputText value=" - "/>
+            			<h:outputText value="Média 8,5"/>
+            			
+            			<h:outputText value="Artes"/>
+            			<h:outputText value=" - "/>
+            			<h:outputText value="Média 9,5"/>
+            		
+            		</p:panelGrid>
+            	
+            	</p:tab>
+            </p:tabView>
+        </p:tab>
+         <p:tab title="Endereço">
+            <h:panelGrid columns="2" cellpadding="5">
+            	<h:outputText value="Lougradouro:"/>
+            	<h:outputText value="#{cadastroAlunoBean.endereco.logradouro}"/>
+            	
+            	<h:outputText value="Numero:"/>
+            	<h:outputText value="#{cadastroAlunoBean.endereco.numero}"/>
+            	
+            	<h:outputText value="Bairro:"/>
+            	<h:outputText value="#{cadastroAlunoBean.endereco.bairro}"/>
+            	
+            	<h:outputText value="Cidade:"/>
+            	<h:outputText value="#{cadastroAlunoBean.endereco.cidade}"/>
+            	
+            	<h:outputText value="UF:"/>
+            	<h:outputText value="#{cadastroAlunoBean.endereco.uf}"/>
+            	
+            	<h:outputText value="CEP:"/>
+            	<h:outputText value="#{cadastroAlunoBean.endereco.cep}"/>
+            </h:panelGrid>
+        </p:tab>
+    </p:tabView>
+
+</p:panelGrid>
+
+<!--  <p:panelGrid columns="2" style="margin-top: 20px">
+	<p:panelGrid columns="2" style="margin-left: 20px">
+    	<f:facet name="header">
+    	<p:lightBox styleClass="imagebox">
+    		<h:outputLink value="../resources/imagens/teste1.png" title="Jorge Henrique">
+       	 		<h:graphicImage name="imagens/teste1.png"  />
+       	 	</h:outputLink>
+       	 </p:lightBox>
+  	  </f:facet>
+ 
+   	 <h:outputText value="Nome:" />
+  	 <h:outputText value="Jorge Henrique" />
+  	 
+  	 <h:outputText value="Série:" />
+   	 <h:outputText value="8º Ano" />
+ 
+   	 <h:outputText value="Turma:" />
+   	 <h:outputText value="A" />
+ 
+   	 <h:outputText value="Turno:" />
+   	 <h:outputText value="Vespertino" />
+ 
+   	 <h:outputText value="Matrícula:" />
+  	  <h:outputText value="2491219" />
+	</p:panelGrid>
+	
+	<p:tabView>
+        <p:tab title="Ocorencias">
+            <h:panelGrid columns="2" cellpadding="5">
+            	<h:outputText value="Faltas:"/>
+            	<h:outputText value="5"/>
+            	
+            	<h:outputText value="Atrasos:"/>
+            	<h:outputText value="14"/>
+            	
+            	<h:outputText value="Advertências:"/>
+            	<h:outputText value="1"/>
+            	
+            	<h:outputText value="Suspenção:"/>
+            	<h:outputText value="0"/>
+              
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Notas">
+            <h:panelGrid columns="2" cellpadding="5">
+            <h:form>
+            <p:dataTable>
+            	
+            
+            </p:dataTable>
+            </h:form>
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Ficha">
+            <h:panelGrid columns="2" cellpadding="5">
+            </h:panelGrid>
+        </p:tab>
+    </p:tabView>
+
+</p:panelGrid>
+
+<p:panelGrid columns="2" style="margin-top: 20px">
+	<p:panelGrid columns="2" style="margin-left: 20px">
+    	<f:facet name="header">
+    	<p:lightBox styleClass="imagebox">
+    		<h:outputLink value="../resources/imagens/teste2.png" title="Gustavo lucas">
+       	 		<h:graphicImage name="imagens/teste2.png"  />
+       	 	</h:outputLink>
+       	 </p:lightBox>
+  	  </f:facet>
+ 
+   	 <h:outputText value="Nome:" />
+  	 <h:outputText value="Gustavo Lucas" />
+  	 
+  	 <h:outputText value="Série:" />
+   	 <h:outputText value="8º Ano" />
+ 
+   	 <h:outputText value="Turma:" />
+   	 <h:outputText value="A" />
+ 
+   	 <h:outputText value="Turno:" />
+   	 <h:outputText value="Vespertino" />
+ 
+   	 <h:outputText value="Matrícula:" />
+  	  <h:outputText value="2491219" />
+	</p:panelGrid>
+	
+	<p:tabView>
+        <p:tab title="Ocorencias">
+            <h:panelGrid columns="2" cellpadding="5">
+            	<h:outputText value="Faltas:"/>
+            	<h:outputText value="5"/>
+            	
+            	<h:outputText value="Atrasos:"/>
+            	<h:outputText value="14"/>
+            	
+            	<h:outputText value="Advertências:"/>
+            	<h:outputText value="1"/>
+            	
+            	<h:outputText value="Suspenção:"/>
+            	<h:outputText value="0"/>
+              
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Notas">
+            <h:panelGrid columns="2" cellpadding="5">
+            <h:form>
+            <p:dataTable>
+            	
+            
+            </p:dataTable>
+            </h:form>
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Ficha">
+            <h:panelGrid columns="2" cellpadding="5">
+            </h:panelGrid>
+        </p:tab>
+    </p:tabView>
+
+</p:panelGrid>-->
+
+
+</ui:define>
+
+<ui:define name="footer">
+	<ui:include src="/WEB-INF/includes/footer.xhtml" />
+</ui:define>
+</ui:composition>

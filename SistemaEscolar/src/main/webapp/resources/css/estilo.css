@@ -1,0 +1,144 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+body {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0px;
+	font-weight: normal
+}
+
+header {
+	
+	padding: 7px;
+	padding-left: 15px;
+	margin-top:-5px;
+	margin-bottom: 0px;
+	height: 40px;
+	background-color: #03A9f4;
+	color: #fff;
+	box-shadow: 0px 2px 2px #ccc
+}
+
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px; 
+}
+
+
+#conteudo {
+	padding: 0px 8px
+}
+
+footer {
+	/*border-top: 1px solid #ccc;*/
+	padding: 5px 8px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-family: 'Open Sans Condensed', sans-serif;
+
+}
+p{
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+
+h1 {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 10px;
+	
+	
+}
+facet{
+	text-align: right;
+}
+
+layoutUnit#superior{
+	padding-top: 0px;
+
+
+}
+.ajax-status{
+	position: fixed;
+	top: 55px;
+	right: 10px;
+	width: 35px;
+	height: 35px
+	
+}
+
+#login-dialog {
+	width: 290px;
+	margin: auto;
+	margin-top: 150px;
+}
+
+.grid-login {
+	background-color: #f2f2f2;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	margin-top: 8px;
+	padding: 20px
+}
+
+h1#login {
+	font-size: 24px;
+	color: #000000;
+	padding: 0px;
+	margin: 0px
+}
+
+
+.menu-sistema{
+	margin-top: 5px;
+	padding: 0px !important;
+	border: 0px !important;
+	background: none !important;
+	box-shadow: none !important;
+}
+
+.menu-sistema .ui-menu-parent > a .ui-menuitem-text, .menu-sistema > .ui-menu-list > .ui-menuitem > a > .ui-menuitem-text {
+    color: #ffffff !important;
+/*Formatação Menu*/
+/*nav#menu ul{
+	display: block;
+}
+nav#menu ul{
+	list-style: none;
+	text-transform: uppercase;
+	position: absolute;
+	top: -20px;
+	left: 780px;
+}
+nav#menu li{
+	display: inline-block;
+	background-color: #dddddd;
+	padding: 10px;
+	margin: 2px;
+	transition: background-color 1s;
+	
+
+}
+nav#menu li:hover{
+	background-color: #606060;
+}
+nav#menu h1{
+	display: none;
+}
+nav#menu a{
+	color: #000000;
+	text-decoration: none;
+}
+nav#menu a:hover{
+	color: #ffffff;*/
+}
+/*Formatação Menu*/

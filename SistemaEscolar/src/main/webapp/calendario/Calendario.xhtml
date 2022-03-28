@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="../WEB-INF/templates/layout.xhtml">
+	
+	
+	
+<ui:define name="corpo">
+<h:form>
+	<script type="text/javascript">
+	PrimeFaces.locales['pt'] = {
+            closeText: 'Fechar',
+            prevText: 'Anterior',
+            nextText: 'Próximo',
+            currentText: 'Começo',
+            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'],
+            dayNamesMin: ['D','S','T','Q','Q','S','S'],
+            weekHeader: 'Semana',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: '',
+            timeOnlyTitle: 'Só Horas',
+            timeText: 'Tempo',
+            hourText: 'Hora',
+            minuteText: 'Minuto',
+            secondText: 'Segundo',
+            currentText: 'Data Atual',
+            ampm: false,
+            month: 'Mês',
+            week: 'Semana',
+            day: 'Dia',
+            allDayText : 'Todo Dia'
+        };	
+	</script>
+	
+	
+		<p:schedule id="calendario" value="" widgetVar="meuCalendario" timeZone="GMT+3" locale="pt" >
+			<p:ajax event="eventSelect" value="" update="eventoDetalhado" oncomplete="PF('caixaDialog').show();" />
+		</p:schedule>
+		<p:dialog widgetVar="caixaDialog" header="Evento" resizable="false" modal="true" showEffect="clip">
+			<p:outputPanel id="eventoDetalhado">
+				<p:panelGrid columns="2">
+					<p:outputPanel value="Título" />
+					<p:inputText value=""/>
+					
+				 <!-- 	<p:outputLabel value="Início"/>
+					<p:calendar value="" pattern="dd/MM/yyyy" />
+					
+					<p:outputLabel value="Fim"/>
+					<p:calendar value="" />-->
+					
+					<p:outputLabel value="Status"/>
+					<p:selectBooleanCheckbox value=""/>
+					
+					<p:outputLabel value=""/>
+					<p:inputText value=""/>
+				
+				</p:panelGrid>
+				<p:separator/>
+				<p:commandButton value="Salvar"/>
+			</p:outputPanel>
+			
+		</p:dialog>
+		
+</h:form>
+</ui:define>
+<ui:define name="superior">
+	<ui:include src="/WEB-INF/includes/MenuSuperior.xhtml" />
+</ui:define>
+
+<ui:define name="lateral">
+	<ui:include src="/WEB-INF/includes/MenuLateral.xhtml" />
+</ui:define>
+
+<ui:define name="footer">
+	<ui:include src="/WEB-INF/includes/footer.xhtml" />
+</ui:define>
+</ui:composition>

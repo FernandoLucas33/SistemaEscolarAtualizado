@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="../WEB-INF/templates/layout.xhtml">
+	
+	
+	
+<ui:define name="corpo">
+<h:form>
+	<h3>Notificações</h3>
+	<p:accordionPanel>
+	
+		
+	
+		<p:tab title="Avisos">
+            <h:panelGrid columns="2" cellpadding="10">
+            	<p:outputLabel value="Enviar aviso para:"/>
+            	<p:selectOneButton value="">
+            		<f:selectItem itemLabel="Toda Escola" itemValue="" />
+           			<f:selectItem itemLabel="Matutino" itemValue="" />
+          			<f:selectItem itemLabel="Vespertino" itemValue="" />
+          			<f:selectItem itemLabel="Noturno" itemValue="" />
+        		</p:selectOneButton>
+            	
+            	<p:inputTextarea />
+				<p:commandButton value="Enviar"/>
+            </h:panelGrid>
+        </p:tab>
+        
+        <p:tab title="Notificações Disciplinares">
+            <h:panelGrid columns="2" cellpadding="10">
+            	<p:outputLabel />
+            
+            </h:panelGrid>
+        </p:tab>
+        
+        <p:tab title="Eventos">
+            <h:panelGrid columns="2" cellpadding="10">
+                <h:outputText value="The story begins as Don Vito Corleone..." />
+            </h:panelGrid>
+        </p:tab>      
+        
+        
+	</p:accordionPanel>
+
+</h:form>
+
+</ui:define>
+<ui:define name="superior">
+	<ui:include src="/WEB-INF/includes/MenuSuperior.xhtml" />
+</ui:define>
+
+<ui:define name="lateral">
+	<ui:include src="/WEB-INF/includes/MenuLateral.xhtml" />
+</ui:define>
+
+<ui:define name="footer">
+	<ui:include src="/WEB-INF/includes/footer.xhtml" />
+</ui:define>
+</ui:composition>

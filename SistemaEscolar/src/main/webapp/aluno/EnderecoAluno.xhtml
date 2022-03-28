@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="../WEB-INF/templates/layout.xhtml">
+	
+	
+<ui:define name="corpo">
+	<h1> Cadastro Endereco de Aluno</h1>
+	<p:growl autoUpdate="true" />
+	<h:form>
+		<p:panelGrid columns="2">
+			<p:outputLabel value="CEP" for="cep"/>
+			<p:inputText id="cep" value="#{enderecoBean.endereco.cep}"/>
+			
+			<p:outputLabel value="Lougradouro" for="lougradouro"/>
+			<p:inputText id="lougradouro" value="#{enderecoBean.endereco.logradouro}"/>
+	
+			<p:outputLabel value="Numero" for="numero"/>
+			<p:inputText id="numero" value="#{enderecoBean.endereco.numero}"/>
+			
+			<p:outputLabel value="Cidade" for="cidade"/>
+			<p:inputText id="cidade" value="#{enderecoBean.endereco.cidade}"/>
+			
+			<p:outputLabel value="UF" for="uf"/>
+			<p:inputText id="uf" value="#{enderecoBean.endereco.uf}"/>
+			
+			<p:outputLabel value="Complemento" for="complemento"/>
+			<p:inputText id="complemento" value="#{enderecoBean.endereco.complemento}"/>
+		</p:panelGrid>
+			<p:separator/>
+			<p:commandButton value="Salvar" action="#{enderecoBean.salvarEndereco}" update="@form"/>
+			<p:commandButton value="Limpar" action="#{enderecoBean.limpar}" update="@form"/>
+	</h:form>
+
+</ui:define>
+<ui:define name="superior">
+	<ui:include src="/WEB-INF/includes/MenuSuperior.xhtml" />
+</ui:define>
+
+<ui:define name="lateral">
+	<ui:include src="/WEB-INF/includes/MenuLateral.xhtml" />
+</ui:define>
+
+<ui:define name="footer">
+	<ui:include src="/WEB-INF/includes/footer.xhtml" />
+</ui:define>
+</ui:composition>

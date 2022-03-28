@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<header>
+		<div style="float: left;">
+			<h1>InfoCollege</h1>
+		</div>
+		
+		<!-- Menu Barra -->
+		<div style="float: right; margin-right: 110px">
+			<span style="float: left; height: 30px; line-height:30px; margin-right: 60px; margin-top: 5px">
+			Olá usuário!
+			</span>
+			<h:form style="display: inline-Block;">
+				<p:menubar styleClass="menu-sistema">
+					<p:menuitem value=" Usuario "/>
+					<p:menuitem value=" Configuração "/>
+					<p:menuitem value=" Sair " url="/j_spring_security_logout"/>
+				</p:menubar>
+			</h:form>
+		</div>
+		<div style="clear: both"></div>
+	</header>
+	
+	
+	
+	
+<p:megaMenu orientation="horizontal" style="margin-top: 0px">
+	<p:menuitem value="Home" outcome="/Index" icon="ui-icon-home" />
+    
+    
+ 	<p:submenu label="Aviso/Notificações" icon="ui-icon-comment">
+ 		<p:column>
+ 			<p:submenu label="Notificações">
+ 				<p:menuitem value="Nova Notificação" outcome="/notificacoes/notificacoes"  />
+ 				<p:menuitem value="Notificações Enviadas" outcome="#" disabled="true" />
+ 			</p:submenu>
+ 			
+ 			<p:submenu label="Avisos">
+ 				<p:menuitem value="Novo Aviso" outcome="/notificacoes/avisos"  />
+ 				<p:menuitem value="Avisos Enviados" outcome="#" disabled="true" />
+ 			</p:submenu>
+ 			
+ 			<p:submenu label="Eventos ">
+ 				<p:menuitem value="Novo Evento" outcome="/notificacoes/eventos" disabled="true"  />
+ 				
+ 			</p:submenu>			
+ 		</p:column>
+ 	</p:submenu>
+    
+ 
+    <p:menuitem value="Calendário" outcome="/calendario/Calendario" icon="ui-icon-calendar" />
+      
+        
+ 
+    <p:submenu label="Alunos" icon="ui-icon-contact">
+        <p:column>
+            <p:submenu label="Cadastro">
+                <p:menuitem value="Novo Aluno" outcome="/aluno/CadastroAlunos" />
+                <p:menuitem value="Novo Responsável" outcome="/responsavel/NovoResponsavel" />
+            </p:submenu>
+            <p:submenu label="Buscar">
+                <p:menuitem value="Aluno" outcome="/aluno/BuscaAlunos" />
+            </p:submenu>
+        </p:column>
+ 
+        <p:column>
+            <p:submenu label="Ficha">
+                <p:menuitem value="Ficha de Alunos" outcome="/aluno/FichaAluno" />
+            </p:submenu>
+        </p:column>
+    </p:submenu>
+ 
+ 	<p:menuitem value="Notas" outcome="#" disabled="true" icon="fa-pencil-square-o" />
+
+</p:megaMenu>
+
+
+
+
+</ui:composition>

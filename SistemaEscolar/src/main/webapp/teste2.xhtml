@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="WEB-INF/templates/layout.xhtml">
+	
+	
+<ui:define name="corpo">
+
+<h1>Cadastro De Alunos</h1>
+		<h:form>
+			<p:growl autoUpdate="true" />
+			<!--  <p:messages autoUpdate="true" closable="true" />-->
+			<p:panelGrid columns="2">
+
+			<p:outputLabel value="CEP" for="cep"/>
+					<p:inputText id="cep" value="#{cadastroAlunoBean.endereco.cep}"/> 
+					
+					<p:outputLabel value="Lougradouro" for="lougradouro"/>
+					<p:inputText id="lougradouro" value="#{cadastroAlunoBean.endereco.logradouro}"/>
+					
+					<p:outputLabel value="Numero" for="numero"/>
+					<p:inputText id="numero" value="#{cadastroAlunoBean.endereco.numero}"/>
+					
+					<p:outputLabel value="Bairro" for="bairro"/>
+					<p:inputText id="bairro" value="#{cadastroAlunoBean.endereco.bairro}"/>
+					
+					<p:outputLabel value="Cidade" for="cidade"/>
+					<p:inputText id="cidade" value="#{cadastroAlunoBean.endereco.cidade}"/>
+					
+					<p:outputLabel value="UF" for="uf"/>
+					<p:inputText id="uf" value="#{cadastroAlunoBean.endereco.uf}"/>
+					
+					<p:outputLabel value="Complemento" for="complemento"/>
+					<p:inputText id="complemento" value="#{cadastroAlunoBean.endereco.complemento}"/>
+				
+
+	</p:panelGrid>
+			<p:separator />
+			
+			<p:commandButton value="Acrescentar Endereço" id="botaoSalvar"
+				action="#{alunoBean.salvar}" update="@form"  />
+		</h:form>
+
+</ui:define>
+<ui:define name="superior">
+	<ui:include src="/WEB-INF/includes/MenuSuperior.xhtml" />
+</ui:define>
+
+<ui:define name="lateral">
+	<ui:include src="/WEB-INF/includes/MenuLateral.xhtml" />
+</ui:define>
+
+<ui:define name="footer">
+	<ui:include src="/WEB-INF/includes/footer.xhtml" />
+</ui:define>
+</ui:composition>

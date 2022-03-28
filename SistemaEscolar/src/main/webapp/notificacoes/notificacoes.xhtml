@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="../WEB-INF/templates/layout.xhtml">
+	
+	
+	
+<ui:define name="corpo">
+<h:form>
+	<h1>Notificações</h1>
+	<p:panelGrid columns="4">
+		<p:outputLabel value=" Diciplinares" for="diciplinar"/>
+		<p:selectOneMenu id="diciplinar">
+			<f:selectItem itemLabel="Selecione a notificação"/>
+			<f:selectItem itemLabel="Atrasos" itemValue="atrasos"/>
+			<f:selectItem itemLabel="Advertência" itemValue="advertencia" />
+			<f:selectItem itemLabel="Advertência Verbal" itemValue="advertencia verbal"/>
+			<f:selectItem itemLabel="Suspenção" itemValue="suspecao" />
+			<f:selectItem itemLabel="Expulção" itemValue="expulcao" />
+		</p:selectOneMenu>
+	
+		<p:outputLabel value="Positivas" for="positiva"/>
+		<p:selectOneMenu id="positiva">
+			<f:selectItem itemLabel="Selecione a notificação"/>
+			<f:selectItem itemLabel="Bom trabalho" itemValue=" bom trabalho"/>
+			<f:selectItem itemLabel="Assiduidade" itemValue="assiduidade" />
+			<f:selectItem itemLabel="Notas Altas" itemValue="Notas Altas"/>
+		</p:selectOneMenu>
+		</p:panelGrid>
+	
+		
+		<p:panelGrid columns="2" style="margin-top: 10px">
+			<p:outputLabel value="Mensagem" for="mensagem" />
+			<p:inputTextarea requiredMessage="true" id="mensagem" style="width: 428px"/>
+		</p:panelGrid>
+	
+	
+	<p:separator/>
+	
+	<p:toolbar style="margin-bottom: 20px; margin-top: 20px">
+			<p:toolbarGroup>
+				<p:commandButton value="Aluno" action="#{pesquisaAlunosBean.pesquisar}" 
+				update="@form" />
+			</p:toolbarGroup>
+	</p:toolbar>
+		
+	<p:panelGrid columns="6">
+			<p:outputLabel value="Nome Aluno" for="nome"/>
+			<p:inputText id="nome" style="width: 250px" value="#{pesquisaAlunosBean.filtro.nome}"/>
+			
+			<p:outputLabel value="Matricula" for="matricula"/>
+			<p:inputText id="matricula" style="width:250px" value="#{pesquisaAlunosBean.filtro.matricula}"/>
+		
+			<p:outputLabel value="Responsável" />
+			<p:inputText style="width:250px" disabled="true" />
+		
+			<p:outputLabel value="Turno" for="turno"/>
+			<p:selectOneMenu style="width:250px" id="turno" value="#{pesquisaAlunosBean.filtro.turno}">
+				<f:selectItem itemLabel="Selecione o Turno" itemValue="" />
+				<f:selectItem itemLabel="Matutino" itemValue="matutino" />
+				<f:selectItem itemLabel="Vespertino" itemValue="vespertino" />
+				<f:selectItem itemLabel="Noturno" itemValue="noturno" />
+			</p:selectOneMenu>
+
+			<p:outputLabel value="Série" for="serie" />
+			<p:selectOneMenu style="width:250px" id="serie" value="#{pesquisaAlunosBean.filtro.serie}">
+					<f:selectItem itemLabel="Selecione a Série" />
+					<f:selectItem itemLabel="9º" itemValue="9º" />
+					<f:selectItem itemLabel="8º" itemValue="8º" />
+					<f:selectItem itemLabel="7º" itemValue="7º" />
+					<f:selectItem itemLabel="6º" itemValue="6º" />
+					<f:selectItem itemLabel="5º" itemValue="5º" />
+					<f:selectItem itemLabel="4º" itemValue="4º" />
+					<f:selectItem itemLabel="3º" itemValue="3º" />
+					<f:selectItem itemLabel="2º" itemValue="2º" />
+					<f:selectItem itemLabel="1º" itemValue="1º" />
+			</p:selectOneMenu>
+
+			<p:outputLabel value="Turma" for="turma" />
+			<p:selectOneMenu style="width:250px" id="turma" value="#{pesquisaAlunosBean.filtro.turma}">
+				<f:selectItem itemLabel="Selecione a Turma" />
+					<f:selectItem itemLabel="A" itemValue="A" />
+					<f:selectItem itemLabel="B" itemValue="B" />
+					<f:selectItem itemLabel="C" itemValue="C" />
+					<f:selectItem itemLabel="D" itemValue="D" />
+					<f:selectItem itemLabel="E" itemValue="E" />
+					<f:selectItem itemLabel="F" itemValue="F" />
+					<f:selectItem itemLabel="G" itemValue="G" />
+					<f:selectItem itemLabel="H" itemValue="H" />
+					<f:selectItem itemLabel="I" itemValue="I" />
+					<f:selectItem itemLabel="J" itemValue="J" />
+					<f:selectItem itemLabel="K" itemValue="K" />
+					<f:selectItem itemLabel="L" itemValue="L" />
+					<f:selectItem itemLabel="M" itemValue="M" />
+					<f:selectItem itemLabel="N" itemValue="N" />
+					<f:selectItem itemLabel="O" itemValue="O" />
+			</p:selectOneMenu>
+		</p:panelGrid>
+		
+		
+		
+		<p:separator/>
+		<p:dataTable id="alunosTable" value="#{pesquisaAlunosBean.alunosFiltrados}" var="aluno"
+			style="margin-top: 20px" emptyMessage="Nenhum aluno encontrado." rows="1" paginator="true"
+			paginatorAlwaysVisible="false" paginatorPosition="bottom">
+			
+				<p:column headerText="Matrícula" style="text-align: center; width: 100px">
+					<h:outputText value="#{aluno.matricula}"/>
+				</p:column>
+		
+				<p:column headerText="Nome" style="width: 200px" >
+					<h:outputText value="#{aluno.nome}"/>
+				</p:column>
+				
+				<p:column headerText="Turno" style="text-align: center; width: 100px" >
+					<h:outputText value="#{aluno.turno}"/>
+				</p:column>
+				
+				<p:column headerText="Série" style="text-align: center; width: 70px" sortBy="#{aluno.serie}" >
+					<h:outputText value="#{aluno.serie}"/>
+				</p:column>
+				
+				<p:column headerText="Turma" style="text-align: center; width: 70px" sortBy="#{aluno.turma}" >
+					<h:outputText value="#{aluno.turma}"/>
+				</p:column>
+				
+				<p:column style="text-align: center; width: 100px">
+					<p:button value="Ficha" outcome="/aluno/Aluno" icon="ui-icon-pencil">
+						<f:param name="aluno" value="#{aluno.id}"/>
+					</p:button>
+					<p:button value="Notificar" style="color: red;"/>
+				</p:column>
+		</p:dataTable>
+	
+</h:form>
+
+</ui:define>
+<ui:define name="superior">
+	<ui:include src="/WEB-INF/includes/MenuSuperior.xhtml" />
+</ui:define>
+
+<ui:define name="lateral">
+	<ui:include src="/WEB-INF/includes/MenuLateral.xhtml" />
+</ui:define>
+
+<ui:define name="footer">
+	<ui:include src="/WEB-INF/includes/footer.xhtml" />
+</ui:define>
+</ui:composition>
